@@ -255,28 +255,80 @@ button{ font-family: inherit; cursor: pointer; }
   transition: transform .3s var(--ease), opacity .3s var(--ease);
 }
 
-@media (max-width: 900px){
-  .main-nav{
+
+/* Mobile navigation fix */
+@media (max-width: 900px) {
+  .main-nav {
     position: fixed;
-    top: 78px; left: 0; right: 0; bottom: 0;
-    background: var(--espresso);
+    top: 78px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: 2.2rem;
-    transform: translateY(-8px);
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0;
+
+    padding: 24px 20px;
+    overflow-y: auto;
+    background: var(--espresso);
+
     opacity: 0;
+    visibility: hidden;
     pointer-events: none;
-    transition: opacity .3s var(--ease), transform .3s var(--ease);
+    transform: translateY(-8px);
+
+    transition:
+      opacity 0.3s var(--ease),
+      transform 0.3s var(--ease),
+      visibility 0.3s;
+    z-index: 600;
   }
-  .main-nav.is-open{
-    opacity: 1; transform: translateY(0); pointer-events: auto;
+
+  .main-nav.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
   }
-  .main-nav a{ font-size: 1.4rem; }
-  .nav-cta{ margin-left: 0; }
-  .nav-toggle{ display: flex; }
-  .nav-toggle[aria-expanded="true"] span:nth-child(1){ transform: translateY(6.5px) rotate(45deg); }
-  .nav-toggle[aria-expanded="true"] span:nth-child(2){ opacity: 0; }
-  .nav-toggle[aria-expanded="true"] span:nth-child(3){ transform: translateY(-6.5px) rotate(-45deg); }
+
+  .main-nav a {
+    display: block;
+    width: 100%;
+    padding: 16px 0;
+    font-size: 1.2rem;
+    text-align: center;
+    border-bottom: 1px solid rgba(172, 165, 158, 0.2);
+  }
+
+  .main-nav a::after {
+    display: none;
+  }
+
+  .nav-cta {
+    margin: 18px 0 0;
+    text-align: center;
+  }
+
+  .nav-toggle {
+    display: flex;
+    position: relative;
+    z-index: 700;
+  }
+
+  .nav-toggle[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(6.5px) rotate(45deg);
+  }
+
+  .nav-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-toggle[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-6.5px) rotate(-45deg);
+  }
 }
 
 body{ padding-top: 78px; }
