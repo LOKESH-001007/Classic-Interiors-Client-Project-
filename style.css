@@ -913,3 +913,62 @@ body{ padding-top: 78px; }
   border-top: 1px solid rgba(172,165,158,.35);
   font-size: .92rem;
 }
+
+/* FIX: Mobile navigation menu */
+@media (max-width: 900px) {
+  .main-nav {
+    position: fixed;
+    top: 78px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: calc(100vh - 78px);
+    height: calc(100dvh - 78px);
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0;
+
+    padding: 20px 20px 40px;
+    overflow-y: auto;
+
+    background: #21140f;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: none;
+
+    z-index: 499;
+  }
+
+  .main-nav.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .main-nav a {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 16px 10px;
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 1.4;
+  }
+
+  .main-nav .nav-cta {
+    margin: 12px 0 0;
+    align-self: stretch;
+    text-align: center;
+  }
+
+  .nav-toggle {
+    position: relative;
+    z-index: 501;
+  }
+}
