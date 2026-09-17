@@ -987,3 +987,33 @@ body{ padding-top: 78px; }
   flex-shrink: 0;
   vertical-align: middle;
 }
+
+/* Center footer credit and restore visible social logos */
+.footer-credit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  text-align: center;
+}
+
+.footer-credit__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--stone);
+}
+
+.footer-credit__link svg {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  flex-shrink: 0;
+  fill: currentColor;
+  vertical-align: middle;
+}
+
+.footer-credit__link:hover {
+  color: var(--tan);
+}
