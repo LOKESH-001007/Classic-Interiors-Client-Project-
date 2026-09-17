@@ -972,3 +972,8 @@ body{ padding-top: 78px; }
     z-index: 501;
   }
 }
+
+/* Temporary fix: hide the broken intro overlay */
+.intro {
+  display: none !important;
+}
