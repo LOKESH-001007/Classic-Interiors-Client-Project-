@@ -977,3 +977,13 @@ body{ padding-top: 78px; }
 .intro {
   display: none !important;
 }
+
+
+/* Fix oversized footer social icons */
+.footer-credit__link svg {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
