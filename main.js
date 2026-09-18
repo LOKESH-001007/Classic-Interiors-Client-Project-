@@ -402,4 +402,5 @@ form.addEventListener('submit', (e) => {
     note.classList.add('is-visible');
   }
 });
+   })();
 
