@@ -392,7 +392,7 @@ form.addEventListener('submit', (e) => {
   const url =
     `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
 
-  window.open(url, '_blank');
+ window.location.href = url;
 
   const note = form.querySelector('.form-note');
 
