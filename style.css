@@ -973,10 +973,7 @@ body{ padding-top: 78px; }
   }
 }
 
-/* Temporary fix: hide the broken intro overlay */
-.intro {
-  display: none !important;
-}
+
 
 
 /* Fix oversized footer social icons */
