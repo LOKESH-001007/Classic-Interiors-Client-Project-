@@ -371,30 +371,35 @@ window.CATEGORIES = CATEGORIES;
       .join('');
   }
 
-    form.addEventListener('submit', (e) => {
-    e.preventDefault();
+    
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
 
-    const name = form.querySelector('#name').value.trim();
-    const phone = form.querySelector('#phone').value.trim();
-    const projectType = form.querySelector('#project-type').value;
-    const message = form.querySelector('#message').value.trim();
+  const name = form.querySelector('#name').value.trim();
+  const phone = form.querySelector('#phone').value.trim();
+  const projectType = form.querySelector('#project-type').value;
+  const message = form.querySelector('#message').value.trim();
 
-    const text =
-      `New Enquiry from Website%0A%0A` +
-      `Name: ${encodeURIComponent(name)}%0A` +
-      `Phone: ${encodeURIComponent(phone)}%0A` +
-      `Project Type: ${encodeURIComponent(projectType)}%0A` +
-      `Message: ${encodeURIComponent(message || '—')}`;
+  const text =
+    `New Enquiry from Website\n\n` +
+    `Name: ${name}\n` +
+    `Phone: ${phone}\n` +
+    `Project Type: ${projectType}\n` +
+    `Message: ${message || '—'}`;
 
-    const whatsappNumber = '919363061612';
-    const url = `https://wa.me/${whatsappNumber}?text=${text}`;
+  const whatsappNumber = '919363061612';
 
-    window.open(url, '_blank');
+  const url =
+    `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
 
-    const note = form.querySelector('.form-note');
-    note.textContent = 'Opening WhatsApp with your enquiry details...';
+  window.open(url, '_blank');
+
+  const note = form.querySelector('.form-note');
+
+  if (note) {
+    note.textContent =
+      'WhatsApp opened. Please press Send to submit your enquiry.';
     note.classList.add('is-visible');
-    form.reset();
-  });
-})();
+  }
+});
 
