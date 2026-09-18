@@ -371,11 +371,30 @@ window.CATEGORIES = CATEGORIES;
       .join('');
   }
 
-  form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', (e) => {
     e.preventDefault();
+
+    const name = form.querySelector('#name').value.trim();
+    const phone = form.querySelector('#phone').value.trim();
+    const projectType = form.querySelector('#project-type').value;
+    const message = form.querySelector('#message').value.trim();
+
+    const text =
+      `New Enquiry from Website%0A%0A` +
+      `Name: ${encodeURIComponent(name)}%0A` +
+      `Phone: ${encodeURIComponent(phone)}%0A` +
+      `Project Type: ${encodeURIComponent(projectType)}%0A` +
+      `Message: ${encodeURIComponent(message || '—')}`;
+
+    const whatsappNumber = '919363061612';
+    const url = `https://wa.me/${whatsappNumber}?text=${text}`;
+
+    window.open(url, '_blank');
+
     const note = form.querySelector('.form-note');
-    note.textContent = 'Thank you — your enquiry has been noted. Our design team will call you back shortly.';
+    note.textContent = 'Opening WhatsApp with your enquiry details...';
     note.classList.add('is-visible');
     form.reset();
   });
 })();
+
